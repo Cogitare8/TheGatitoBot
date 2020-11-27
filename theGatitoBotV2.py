@@ -62,4 +62,4 @@ async def on_member_join(member):
 
     
 
-client.run(os.environ['DISCORD_TOKEN'])
+client.run("NzgxMjM3MTcwMzc1NjIyNjg2.X76t0A.dMgdkZcMx2I7ytfHIx6fenBX1Lg")
