@@ -5,7 +5,7 @@ import random
 from random import choice
 from discord.ext import commands
 
-client = commands.Bot(command_prefix='.', intents=intents)
+client = commands.Bot(command_prefix='.')
 
 @client.event
 async def on_ready():
