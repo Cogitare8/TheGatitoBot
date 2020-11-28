@@ -58,7 +58,7 @@ async def on_message(message):
         # Delay
         delay = int(message.content[messageEnd + 2])
             
-        if(x<21):
+        if(x<100):
             for z in range (0, x):    
                 await message.channel.send(message.content[messageStart+1:messageEnd])
                 time.sleep(delay)
