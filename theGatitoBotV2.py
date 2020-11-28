@@ -6,9 +6,11 @@ from random import choice
 from discord.ext import commands
 
 intents = discord.Intents.all()
-client = discord.Client(intents=intents)
 
 client = commands.Bot(command_prefix = '.')
+
+guild = client.get_guild(ID)
+memberList = guild.members
 
 @client.event
 async def on_ready():
@@ -28,7 +30,7 @@ async def on_message(message):
         await message.channel.send(f'*All hail the mighty Gatito*')
         
     if message.content.startswith('pick random'):
-        user = choice(message.channel.guild.members)
+        user = choice(memberList)
         await message.channel.send('{} är den utvalde!'.format(user.mention))
     
     if message.content.startswith('.spam'):
