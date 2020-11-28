@@ -24,7 +24,7 @@ async def on_message(message):
         await message.channel.send(f'*All hail the mighty Gatito*')
         
     if message.content.startswith('pick random'):
-        user = choice(message.channel.guild.members)
+        user = choice(guild.members)
         await message.channel.send('{} är den utvalde!'.format(user.mention))
     
     if message.content.startswith('.spam'):
