@@ -4,61 +4,60 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = '.')
-albin = '248486917170135041'
 
 @client.event
 async def on_ready():
     print('Strong in the force, I am.')
-
-@client.command()
-async def gatito(ctx):
-    await ctx.send(f'The <@248486917170135041>')
-
-@client.command()
-async def spam(ctx):
-    y = 1
-    number = -2
-    p = 0
-    messageEnd = 0
-    messageStart = 0
-    delay = 0
-
-    # Hur många gånger?
-    try:
-        temp = int(ctx.message.content[-2])
-    except ValueError:
-        x = int(ctx.message.content[-1])
-        y = 0
-        
-    if y == 1:
-        x = int(ctx.message.content[-2])*10 + int(ctx.message.content[-1])
-
-    # Kolla efter var meddelandet börjar
-    for u in ctx.message.content:
-        if (u=='"'):
-            messageStart = p
-            break
-        p += 1
-
-    # Kolla efter var meddelandet slutar
-    for u in range (p+1, len(ctx.message.content)):
-        if (ctx.message.content[u] == '"'):
-            messageEnd = u
-            break
-
-    # Delay
-    delay = int(ctx.message.content[messageEnd + 2])
-        
-    if(x<21):
-        for z in range (0, x):    
-            await ctx.send(ctx.message.content[messageStart+1:messageEnd])
-            time.sleep(delay)
-    else:
-        await ctx.send(f'Balls')
-
+    
 @client.event
-async def on_member_join(member):
-    await member.channel.send(f'Tjena ' + member) 
+async def on_message(message):
+    if len(message.content) == 9 and message.content[0:6] == message.content[0:6].upper():
+        await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(13))
+        await message.channel.send(f'@everyone Server: ' + message.content[7:9].upper().rjust(4))
+        await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(13))
+    elif len(message.content) == 6 and message.content[0:6] == message.content[0:6].upper():
+        await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(10))
+        await message.channel.send(f'@everyone Host: ' + str(message.author).rjust(15))        
+    if message.content.startswith('.spam'):
+        y = 1
+        number = -2
+        p = 0
+        messageEnd = 0
+        messageStart = 0
+        delay = 0
+
+        # Hur många gånger?
+        try:
+            temp = int(message.content[-2])
+        except ValueError:
+            x = int(message.content[-1])
+            y = 0
+        
+        if y == 1:
+            x = int(message.content[-2])*10 + int(message.content[-1])
+
+       # Kolla efter var meddelandet börjar
+        for u in message.content:
+            if (u=='"'):
+                messageStart = p
+                break
+            p += 1
+
+        # Kolla efter var meddelandet slutar
+        for u in range (p+1, len(message.content)):
+            if (message.content[u] == '"'):
+                messageEnd = u
+                break
+
+        # Delay
+        delay = int(message.content[messageEnd + 2])
+            
+        if(x<21):
+            for z in range (0, x):    
+                await message.channel.send(message.content[messageStart+1:messageEnd])
+                time.sleep(delay)
+        else:
+            await ctx.send(f'Balls')
 
     
 
