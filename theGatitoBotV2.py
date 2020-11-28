@@ -1,6 +1,7 @@
 import discord
 import time
 import os
+from random import choice
 from discord.ext import commands
 
 client = commands.Bot(command_prefix = '.')
@@ -21,6 +22,10 @@ async def on_message(message):
     
     if 'gatito' in message.content:
         await message.channel.send(f'*All hail the mighty Gatito*')
+        
+    if message.content.startswith('pick random'):
+        user = choice(message.channel.guild.members)
+        await message.channel.send('{} är den utvalde!'.format(user.mention))
     
     if message.content.startswith('.spam'):
         y = 1
