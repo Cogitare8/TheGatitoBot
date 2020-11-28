@@ -8,8 +8,6 @@ from discord.ext import commands
 intents = discord.Intents(messages=True, guilds=True)
 client = commands.Bot(command_prefix='.', intents=intents)
 
-memberList = guild.members
-
 @client.event
 async def on_ready():
     print('Strong in the force, I am.')
@@ -28,6 +26,7 @@ async def on_message(message):
         await message.channel.send(f'*All hail the mighty Gatito*')
         
     if message.content.startswith('pick random'):
+        memberList = message.channel.guild.members
         user = choice(memberList)
         await message.channel.send('{} är den utvalde!'.format(user.mention))
     
