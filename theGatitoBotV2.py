@@ -5,9 +5,9 @@ import random
 from random import choice
 from discord.ext import commands
 
-intents = discord.Intents.all()
+intents = discord.Intents(messages=True, guilds=True)
 
-client = commands.Bot(command_prefix = '.')
+client = commands.Bot(command_prefix='.', intents=intents)
 
 guild = client.get_guild(ID)
 memberList = guild.members
