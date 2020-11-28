@@ -12,12 +12,12 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if len(message.content) == 9 and message.content[0:6] == message.content[0:6].upper():
-        await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(13))
+        await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(12))
         await message.channel.send(f'@everyone Server: ' + message.content[7:9].upper().rjust(4))
         await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(13))
     elif len(message.content) == 6 and message.content[0:6] == message.content[0:6].upper():
         await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(10))
-        await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(11))        
+        await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(10))        
     if message.content.startswith('.spam'):
         y = 1
         number = -2
