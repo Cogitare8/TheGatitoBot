@@ -18,6 +18,10 @@ async def on_message(message):
     elif len(message.content) == 6 and message.content[0:6] == message.content[0:6].upper():
         await message.channel.send(f'@everyone Kod: ' + message.content[0:6].rjust(10))
         await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(10))        
+    
+    if 'gatito' in message.content:
+        await message.channel.send(f'**The mighty Gatito**')
+    
     if message.content.startswith('.spam'):
         y = 1
         number = -2
