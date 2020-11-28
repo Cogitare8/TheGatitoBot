@@ -5,6 +5,9 @@ import random
 from random import choice
 from discord.ext import commands
 
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
+
 client = commands.Bot(command_prefix = '.')
 
 @client.event
