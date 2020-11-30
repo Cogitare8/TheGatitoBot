@@ -56,7 +56,7 @@ async def on_message(message):
                 break
 
         # Delay
-        delay = int(message.content[messageEnd + 2])
+        delay = message.content[messageEnd + 2]
             
         if(x<100):
             for z in range (0, x):    
