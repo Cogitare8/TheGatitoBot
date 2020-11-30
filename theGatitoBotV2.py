@@ -42,14 +42,14 @@ async def on_message(message):
 
        # Kolla efter var meddelandet börjar
         for u in message.content:
-            if (u=='"'):
+            if (u=='"' or u=='”'):
                 messageStart = p
                 break
             p += 1
 
         # Kolla efter var meddelandet slutar
         for u in range (p+1, len(message.content)):
-            if (message.content[u] == '"'):
+            if (message.content[u] == '"' or message.content[u] == '”'):
                 messageEnd = u
                 break
 
