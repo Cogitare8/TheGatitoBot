@@ -1,8 +1,6 @@
 import discord
 import time
 import os
-import random
-from random import choice
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='.')
@@ -56,7 +54,7 @@ async def on_message(message):
                 break
 
         # Delay
-        delay = message.content[messageEnd + 2]
+        delay = int(message.content[messageEnd + 2])
             
         if(x<100):
             for z in range (0, x):    
