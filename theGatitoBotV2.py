@@ -61,7 +61,7 @@ async def on_message(message):
                 await message.channel.send(message.content[messageStart+1:messageEnd])
                 time.sleep(delay)
         else:
-            await ctx.send(f'Balls')
+            await message.send(f'Balls')
 
     
 
