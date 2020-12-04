@@ -21,6 +21,9 @@ async def on_message(message):
     
     if 'gatito' in message.content:
         await message.channel.send(f'*All hail the mighty Gatito*')
+        
+    if message.content == 'stfu':
+        stfu = True
     
     if message.content.startswith('.spam'):
         stfu = False
@@ -59,9 +62,10 @@ async def on_message(message):
             
         if(x<41):
             for z in range (0, x):
-                while stfu == False:
-                    await message.channel.send(message.content[messageStart+1:messageEnd])
-                    time.sleep(delay)
+                if stfu == True:
+                    break
+                await message.channel.send(message.content[messageStart+1:messageEnd])
+                time.sleep(delay)
         else:
             await message.send(f'Balls')
     
