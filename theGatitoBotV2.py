@@ -4,6 +4,7 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='.')
+stfu == False
 
 @client.event
 async def on_ready():
@@ -20,7 +21,10 @@ async def on_message(message):
         await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(10))        
     
     if 'gatito' in message.content:
-        await message.channel.send(f'*All hail the mighty Gatito*')  
+        await message.channel.send(f'*All hail the mighty Gatito*')
+        
+    if message.content == 'stfu':
+        stfu == True
     
     if message.content.startswith('.spam'):
         y = 1
@@ -58,10 +62,10 @@ async def on_message(message):
             
         if(x<41):
             for z in range (0, x):
-                if message.content == '.stfu':
-                    break
-                await message.channel.send(message.content[messageStart+1:messageEnd])
-                time.sleep(delay)
+                while !stfu:
+                    await message.channel.send(message.content[messageStart+1:messageEnd])
+                    time.sleep(delay)
+            stfu = False
         else:
             await message.send(f'Balls')
     
