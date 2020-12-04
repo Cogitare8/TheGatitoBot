@@ -62,7 +62,7 @@ async def on_message(message):
             
         if(x<41):
             for z in range (0, x):
-                while not stfu:
+                while stfu == False:
                     await message.channel.send(message.content[messageStart+1:messageEnd])
                     time.sleep(delay)
             stfu = False
