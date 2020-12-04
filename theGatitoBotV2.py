@@ -4,7 +4,6 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='.')
-stfu = False
 
 @client.event
 async def on_ready():
@@ -22,11 +21,9 @@ async def on_message(message):
     
     if 'gatito' in message.content:
         await message.channel.send(f'*All hail the mighty Gatito*')
-        
-    if message.content == 'stfu':
-        stfu == True
     
     if message.content.startswith('.spam'):
+        stfu = False
         y = 1
         number = -2
         p = 0
@@ -65,7 +62,6 @@ async def on_message(message):
                 while stfu == False:
                     await message.channel.send(message.content[messageStart+1:messageEnd])
                     time.sleep(delay)
-            stfu = False
         else:
             await message.send(f'Balls')
     
