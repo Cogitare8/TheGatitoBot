@@ -4,7 +4,7 @@ import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='.')
-stfu == False
+stfu = False
 
 @client.event
 async def on_ready():
