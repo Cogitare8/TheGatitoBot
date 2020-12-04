@@ -20,7 +20,7 @@ async def on_message(message):
         await message.channel.send(f'@everyone Host: ' + (str(message.author))[0:-5].rjust(10))        
     
     if 'gatito' in message.content:
-        await message.channel.send(f'*All hail the mighty Gatito*')
+        await message.channel.send(f'*All hail the mighty Gatito*')  
     
     if message.content.startswith('.spam'):
         y = 1
@@ -62,7 +62,9 @@ async def on_message(message):
                 time.sleep(delay)
         else:
             await message.send(f'Balls')
-
+            
+        if message.content == '.stfu':
+            break
     
 
 client.run(os.environ['TOKEN'])
