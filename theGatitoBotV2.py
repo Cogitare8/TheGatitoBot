@@ -24,6 +24,7 @@ async def on_message(message):
         
     if message.content == 'stfu':
         stfu = True
+        print('1')
     
     if message.content.startswith('.spam'):
         stfu = False
@@ -63,6 +64,7 @@ async def on_message(message):
         if(x<41):
             for z in range (0, x):
                 if stfu == True:
+                    print('2')
                     break
                 await message.channel.send(message.content[messageStart+1:messageEnd])
                 time.sleep(delay)
