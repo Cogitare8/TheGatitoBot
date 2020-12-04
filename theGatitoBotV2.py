@@ -57,14 +57,13 @@ async def on_message(message):
         delay = int(message.content[messageEnd + 2])
             
         if(x<41):
-            for z in range (0, x):    
+            for z in range (0, x):
+                if message.content == '.stfu':
+                    break
                 await message.channel.send(message.content[messageStart+1:messageEnd])
                 time.sleep(delay)
         else:
             await message.send(f'Balls')
-            
-        if message.content == '.stfu':
-            break
     
 
 client.run(os.environ['TOKEN'])
